@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import Image from "next/image";
@@ -44,7 +45,7 @@ export default function Home() {
         <div className="mt-20 flex flex-col gap-4 items-start w-full">
           <h1 className="text-5xl font-bold">
             {start
-              ? `next spawn ${Math.ceil(timeLeft / 1000)}s`
+              ? `Next spawn ${Math.ceil(timeLeft / 1000)}s`
               : "Start the timer"}
           </h1>
           <div className="relative w-full h-12 rounded-lg bg-[#a89e8854] overflow-hidden flex">
@@ -53,7 +54,7 @@ export default function Home() {
               style={{ transform: `scaleX(${progress / 100})` }}
             ></div>
           </div>
-          <div className="flex gap-4 items-center flex-col sm:flex-row">
+          <div className="flex gap-4 items-center flex-wrap">
             <button
               className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:opacity-90 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
               onClick={() => {
@@ -75,7 +76,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className="absolute left-0 top-0 bottom-0 w-40 bg-[#a89e8854] flex items-center justify-end m-8 rounded-lg overflow-hidden">
+        <div className="absolute hidden lg:flex left-0 top-0 bottom-0 w-40 bg-[#a89e8854] items-center justify-end m-8 rounded-lg overflow-hidden">
           <div
             className="h-full w-full bg-foreground duration-1000 transition-transform origin-top"
             style={{ transform: `scaley(${progress / 100})` }}
@@ -84,7 +85,7 @@ export default function Home() {
             {Math.ceil(timeLeft / 1000)}
           </h1>
         </div>
-        <div className="absolute right-0 top-0 bottom-0 w-40 bg-[#a89e8854] flex items-center justify-end m-8 rounded-lg overflow-hidden">
+        <div className="absolute hidden lg:flex right-0 top-0 bottom-0 w-40 bg-[#a89e8854] items-center justify-end m-8 rounded-lg overflow-hidden">
           <div
             className="h-full w-full bg-foreground duration-1000 transition-transform origin-top"
             style={{ transform: `scaley(${progress / 100})` }}
@@ -94,6 +95,14 @@ export default function Home() {
           </h1>
         </div>
       </main>
+
+      <a
+        className="absolute bottom-0 w-full flex items-center justify-center gap-1 p-8 text-sm text-center sm:text-left opacity-40 hover:opacity-100"
+        href="https://codya.dev"
+        target="_blank"
+      >
+        made by <span className="font-bold">Cody Adam</span>{" "}
+      </a>
     </div>
   );
 }
